@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Bookstore</title>
+    <style>
+        .Header{
+            background: #314026;
+            height: 80px;
+            font-size: 30px;
+            display: flex;
+            align-items: center;
+          
+        }
+        .Logo{
+           width: 150px;
+           text-align: center;
+           background-color:  #314026;
+        }
+         .title{
+            font-weight: bold;
+            flex: 1;
+            text-align: center;
+         }
+        .Menu{
+            background: #526a40;
+            display: flex;
+            height: 50px;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .Menu a{
+            text-decoration: none;
+            color: red;
+            font-weight:bold;
+           
+            
+        }
+        .main{
+            display: flex;
+            height: 300px;
+        }
+        .left{
+            width: 200px;
+            border:1px solid black;
+            display: flex;
+            flex-direction: column;
+            width: 150px;
+            
+           
+        }
+        .left a{
+            text-decoration: none;
+        }
+             
+        .Right{
+            flex: 1;
+            border:1px solid black;
+            padding: 20px;
+        }
+        .Right iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .logo img {
+            width: 100px;
+            height: 100px;
+        }
+        
+         
+        
+    </style>
+</head>
+<body>
+   <div class = "Header">
+    <div class = "logo"><img src="logo.jpg"></div>
+    <div class = "title">Website Name</div>
+   </div>
+   <div class = "Menu">
+    <a href ="home.html" target="content">Home</a>
+    <a href ="">Login</a>
+    <a href ="">Registration</a>
+    <a href ="">Catalogue</a>
+    <a href ="">Cart</a>
+   </div>
+   <div class = "main">
+       <div class = "left">
+       <a href= "CSE.html" target="content">CSE</a>
+         <a href="ECE.html" target="content">ECE</a>
+         <a href="EEE.html" target="content">EEE</a>
+         <a href="CIVIL.html" target="content">CIVIL</a>
+   </div>
+   <div class = "Right">
+     <iframe src="home.html" name="content">
+
+     </iframe>
+    
+   </div>
+   </div>
+</body>
+</html>
