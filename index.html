@@ -1,103 +1,880 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Bookstore</title>
-    <style>
-        .Header{
-            background: #314026;
-            height: 80px;
-            font-size: 30px;
-            display: flex;
-            align-items: center;
-          
-        }
-        .Logo{
-           width: 150px;
-           text-align: center;
-           background-color:  #314026;
-        }
-         .title{
-            font-weight: bold;
-            flex: 1;
-            text-align: center;
-         }
-        .Menu{
-            background: #526a40;
-            display: flex;
-            height: 50px;
-            justify-content: space-around;
-            align-items: center;
-        }
-        .Menu a{
-            text-decoration: none;
-            color: red;
-            font-weight:bold;
-           
-            
-        }
-        .main{
-            display: flex;
-            height: 500px;
-        }
-        .left{
-            width: 200px;
-            border:1px solid black;
-            display: flex;
-            flex-direction: column;
-            width: 150px;
-            
-           
-        }
-        .left a{
-            text-decoration: none;
-        }
-             
-        .Right{
-            flex: 1;
-            border:1px solid black;
-            padding: 20px;
-        }
-        .Right iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        .logo img {
-            width: 100px;
-            height: 100px;
-        }
-        
-         
-        
-    </style>
-</head>
-<body>
-   <div class = "Header">
-    <div class = "logo"><img src="logo .jpg"></div>
-    <div class = "title">Website Name</div>
-   </div>
-   <div class = "Menu">
-    <a href ="home.html" target="content">Home</a>
-    <a href ="login page.html" target="content">Login</a>
-    <a href ="Registration Form.html" target="content">Registration</a>
-    <a href ="catalouge.html" target="content">Catalogue</a>
-    <a href ="Cart.html" target="content">Cart</a>
-   </div>
-   <div class = "main">
-       <div class = "left">
-       <a href= "CSE.html" target="content">CSE</a>
-         <a href="ECE.html" target="content">ECE</a>
-         <a href="EEE.html" target="content">EEE</a>
-         <a href="CIVIL.html" target="content">CIVIL</a>
-   </div>
-   <div class = "Right">
-     <iframe src="home.html" name="content">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#080b18" />
+  <meta name="description" content="Princy's portfolio — B.Tech CSIT student, programmer, web designer and aspiring full-stack developer." />
+  <title>Princy | Developer Portfolio</title>
 
-     </iframe>
-    
-   </div>
-   </div>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #080b18;
+      --surface: #11162a;
+      --text: #f5f7ff;
+      --muted: #a6aec7;
+      --purple: #a78bfa;
+      --blue: #60a5fa;
+      --cyan: #67e8f9;
+      --border: rgba(255,255,255,.10);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+
+    .container { width: min(1120px, 90%); margin: auto; }
+
+    .gradient-text {
+      background: linear-gradient(100deg, var(--purple), var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8,11,24,.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-inner {
+      min-height: 74px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font: 700 1.8rem 'Space Grotesk', sans-serif;
+      letter-spacing: -1px;
+    }
+
+    .logo span { color: var(--purple); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .9rem;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+
+    .menu-btn {
+      display: none;
+      background: transparent;
+      color: white;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 7px 12px;
+      cursor: pointer;
+    }
+
+    .hero {
+      min-height: 86vh;
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      align-items: center;
+      gap: 55px;
+      padding-top: 75px;
+      padding-bottom: 75px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(167,139,250,.28);
+      border-radius: 50px;
+      padding: 8px 14px;
+      background: rgba(167,139,250,.08);
+      color: #d5c6ff;
+      font-size: .84rem;
+      margin-bottom: 24px;
+    }
+
+    .status-dot {
+      height: 8px;
+      width: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 12px #4ade80;
+    }
+
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; }
+
+    h1 {
+      font-size: clamp(3rem, 6.2vw, 5.5rem);
+      line-height: 1.06;
+      letter-spacing: -3px;
+      margin-bottom: 18px;
+    }
+
+    .hero h2 {
+      font-size: clamp(1.15rem, 2.5vw, 1.65rem);
+      color: #c5cce0;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+
+    .hero p, .section-description {
+      color: var(--muted);
+      max-width: 600px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 21px;
+      border-radius: 11px;
+      font-weight: 700;
+      font-size: .92rem;
+      border: 1px solid var(--border);
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+    }
+
+    .btn:hover { transform: translateY(-3px); }
+
+    .btn-primary {
+      color: #080b18;
+      border: 0;
+      background: linear-gradient(110deg, var(--purple), var(--cyan));
+      box-shadow: 0 8px 28px rgba(103,232,249,.12);
+    }
+
+    .btn-outline { background: rgba(255,255,255,.035); }
+    .btn-outline:hover { border-color: var(--purple); }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .social-row a {
+      color: #c6cde1;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .social-row a:hover { color: var(--cyan); }
+
+    .hero-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-height: 380px;
+    }
+
+    .orb {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #8b5cf6, #3b82f6 55%, #67e8f9);
+      filter: blur(1px);
+      opacity: .9;
+      box-shadow: 0 0 100px rgba(139,92,246,.25);
+    }
+
+    .profile-card {
+      position: relative;
+      width: min(320px, 100%);
+      padding: 30px;
+      border-radius: 24px;
+      background: rgba(12,16,34,.88);
+      border: 1px solid rgba(255,255,255,.19);
+      backdrop-filter: blur(15px);
+      box-shadow: 0 25px 70px rgba(0,0,0,.35);
+      transform: rotate(2deg);
+    }
+
+    .code-top { display: flex; gap: 7px; margin-bottom: 25px; }
+    .code-top i { height: 10px; width: 10px; border-radius: 50%; background: #fb7185; }
+    .code-top i:nth-child(2) { background: #fbbf24; }
+    .code-top i:nth-child(3) { background: #4ade80; }
+
+    .code-line {
+      font-family: monospace;
+      font-size: .91rem;
+      color: #cbd5e1;
+      margin: 9px 0;
+      overflow-wrap: anywhere;
+    }
+
+    .pink { color: #f0abfc; }
+    .green { color: #86efac; }
+    .yellow { color: #fde68a; }
+
+    .floating-tag {
+      position: absolute;
+      padding: 10px 15px;
+      background: #171c32;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: .86rem;
+      box-shadow: 0 10px 30px rgba(0,0,0,.2);
+    }
+
+    .tag-one { top: 28px; right: -5px; color: var(--cyan); }
+    .tag-two { bottom: 35px; left: -12px; color: #d8b4fe; }
+
+    section { padding: 85px 0; }
+
+    .section-heading { margin-bottom: 38px; }
+
+    .section-label {
+      color: var(--cyan);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: .78rem;
+      margin-bottom: 10px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      letter-spacing: -1.5px;
+      margin-bottom: 12px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 25px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(21,27,49,.94), rgba(13,17,34,.96));
+      border: 1px solid var(--border);
+      border-radius: 19px;
+      padding: 27px;
+      transition: transform .25s, border-color .25s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(167,139,250,.48);
+    }
+
+    .card h3 { font-size: 1.2rem; margin-bottom: 12px; }
+    .card p { color: var(--muted); font-size: .95rem; }
+
+    .education-card { border-left: 3px solid var(--purple); }
+    .education-card .institute { color: var(--cyan); margin: 8px 0; font-weight: 600; }
+
+    .quality-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .quality {
+      background: rgba(255,255,255,.035);
+      padding: 12px;
+      border-radius: 10px;
+      color: #d9e0f5;
+      font-size: .87rem;
+    }
+
+    .quality span { color: var(--cyan); margin-right: 7px; }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card { position: relative; overflow: hidden; }
+    .skill-icon { font-size: 2rem; margin-bottom: 14px; display: block; }
+    .skill-card h3 { margin-bottom: 9px; }
+    .skill-card p { margin-bottom: 17px; }
+
+    .skill-chip {
+      display: inline-block;
+      border-radius: 7px;
+      padding: 5px 9px;
+      font-size: .75rem;
+      font-weight: 700;
+      background: rgba(167,139,250,.12);
+      color: #d8b4fe;
+      border: 1px solid rgba(167,139,250,.18);
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .tech {
+      padding: 9px 15px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.035);
+      color: #dbe4ff;
+      font-size: .88rem;
+      font-weight: 600;
+    }
+
+    .tech:hover { border-color: var(--cyan); }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .project-number {
+      font: 700 2.1rem 'Space Grotesk', sans-serif;
+      color: rgba(167,139,250,.7);
+      margin-bottom: 12px;
+    }
+
+    .project-card h3 { margin-bottom: 12px; }
+    .project-card p { margin-bottom: 20px; }
+
+    .project-link {
+      color: var(--cyan);
+      font-weight: 600;
+      font-size: .9rem;
+    }
+
+    .highlight-box {
+      border: 1px solid rgba(103,232,249,.2);
+      border-radius: 24px;
+      padding: 40px;
+      background: radial-gradient(ellipse at top left, rgba(139,92,246,.14), transparent 55%),
+                  rgba(17,22,42,.65);
+    }
+
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 28px;
+    }
+
+    .highlight-item {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+    }
+
+    .highlight-item h3 { font-size: 1.06rem; margin-bottom: 8px; }
+    .highlight-item p { color: var(--muted); font-size: .9rem; }
+
+    .contact-card {
+      text-align: center;
+      padding: 48px 25px;
+      border: 1px solid var(--border);
+      border-radius: 23px;
+      background: radial-gradient(ellipse at 50% 0%, rgba(96,165,250,.14), transparent 60%),
+                  var(--surface);
+    }
+
+    .contact-card h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 14px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 25px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+      transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    @media (max-width: 850px) {
+      .hero { grid-template-columns: 1fr; padding-top: 65px; gap: 15px; }
+      .hero-visual { min-height: 350px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links { gap: 14px; }
+      .highlight-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .menu-btn { display: block; }
+      .nav-inner { min-height: 68px; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: #0d1123;
+        padding: 20px 5%;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links.open { display: flex; }
+      h1 { letter-spacing: -2px; }
+      .skills-grid, .projects-grid { grid-template-columns: 1fr; }
+      .hero-visual { min-height: 330px; }
+      .orb { width: 250px; height: 250px; }
+      .tag-one { right: 0; }
+      .tag-two { left: 0; }
+      .highlight-box { padding: 25px 20px; }
+      section { padding: 65px 0; }
+      .quality-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar">
+    <nav class="container nav-inner" aria-label="Main navigation">
+      <a href="#home" class="logo">P<span>.</span></a>
+
+      <button class="menu-btn" id="menuBtn"
+        aria-label="Toggle navigation" aria-expanded="false"
+        aria-controls="navLinks">☰ Menu</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container hero" id="home">
+      <div class="hero-content">
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          B.Tech CSIT Student · Aspiring Developer
+        </div>
+
+        <h1>Hi, I'm <span class="gradient-text">Princy.</span></h1>
+
+        <h2>I build ideas into <span class="gradient-text">digital experiences.</span></h2>
+
+        <p>
+          I'm a Computer Science and Information Technology student at
+          GL Bajaj Institute of Technology and Management. I enjoy programming,
+          solving coding problems, designing websites and learning full-stack
+          development to build useful digital products.
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#projects">Explore My Work ↗</a>
+          <a class="btn btn-outline" href="#contact">Let's Connect</a>
+        </div>
+
+        <div class="social-row">
+          <a href="https://github.com/princy4962-source"
+             target="_blank" rel="noopener noreferrer">⌘ GitHub ↗</a>
+          <a href="https://leetcode.com/problemset/"
+             target="_blank" rel="noopener noreferrer">◈ LeetCode ↗</a>
+          <a href="https://www.linkedin.com/in/princy-undefined-15a5b5411/"
+             target="_blank" rel="noopener noreferrer">in LinkedIn ↗</a>
+        </div>
+      </div>
+
+      <div class="hero-visual" aria-label="Decorative programming code card">
+        <div class="orb"></div>
+        <div class="profile-card">
+          <div class="code-top"><i></i><i></i><i></i></div>
+          <div class="code-line"><span class="pink">const</span> developer = {</div>
+          <div class="code-line">&nbsp; name: <span class="green">'Princy'</span>,</div>
+          <div class="code-line">&nbsp; branch: <span class="green">'CSIT'</span>,</div>
+          <div class="code-line">&nbsp; passion: <span class="green">'Coding'</span>,</div>
+          <div class="code-line">&nbsp; mindset: <span class="green">'Growth'</span>,</div>
+          <div class="code-line">&nbsp; learning: <span class="yellow">'Every day'</span></div>
+          <div class="code-line">};</div>
+          <div class="code-line" style="margin-top:22px;color:#67e8f9">
+            // Turning curiosity into code.
+          </div>
+        </div>
+        <div class="floating-tag tag-one">✦ Problem Solver</div>
+        <div class="floating-tag tag-two">{"</>"} Web Developer</div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label">01 — About Me</div>
+          <h2>A little about <span class="gradient-text">who I am.</span></h2>
+          <p class="section-description">
+            Curious mind. Creative thinking. Consistent learning.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="card reveal">
+            <h3>My Journey</h3>
+            <p>
+              I'm Princy, a B.Tech student pursuing Computer Science and
+              Information Technology (CSIT). I am developing my programming
+              fundamentals in C, C++, Java and Python while exploring web
+              design and full-stack development.
+            </p>
+            <p style="margin-top:15px">
+              My goal is to strengthen my problem-solving skills, create
+              practical projects and grow into a well-rounded software
+              developer who can turn ideas into real-world solutions.
+            </p>
+
+            <div class="quality-list">
+              <div class="quality"><span>✦</span>Quick Learner</div>
+              <div class="quality"><span>✦</span>Problem Solver</div>
+              <div class="quality"><span>✦</span>Creative Thinker</div>
+              <div class="quality"><span>✦</span>Growth Mindset</div>
+            </div>
+          </article>
+
+          <article class="card education-card reveal">
+            <div class="section-label">Education</div>
+            <h3>Bachelor of Technology</h3>
+            <p class="institute">GL Bajaj Institute of Technology and Management</p>
+            <p>Branch: Computer Science and Information Technology (CSIT)</p>
+            <p style="margin-top:18px">
+              <span class="skill-chip">Programming</span>
+              <span class="skill-chip">Web Development</span>
+              <span class="skill-chip">Problem Solving</span>
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label">02 — Technical Skills</div>
+          <h2>What I bring to <span class="gradient-text">the table.</span></h2>
+          <p class="section-description">
+            Languages and development areas I'm learning and practising.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="card skill-card reveal">
+            <span class="skill-icon">⌘</span>
+            <h3>C Programming</h3>
+            <p>Building programming fundamentals, logical thinking and an understanding of data structures.</p>
+            <span class="skill-chip">Programming</span>
+          </article>
+
+          <article class="card skill-card reveal">
+            <span class="skill-icon">⚙</span>
+            <h3>C++</h3>
+            <p>Practising problem-solving, object-oriented concepts and writing structured code.</p>
+            <span class="skill-chip">OOP & Logic</span>
+          </article>
+
+          <article class="card skill-card reveal">
+            <span class="skill-icon">☕</span>
+            <h3>Java</h3>
+            <p>Learning object-oriented programming and core Java concepts for software development.</p>
+            <span class="skill-chip">Core Java</span>
+          </article>
+
+          <article class="card skill-card reveal">
+            <span class="skill-icon">🐍</span>
+            <h3>Python</h3>
+            <p>Exploring Python syntax, programming logic and solutions to computational problems.</p>
+            <span class="skill-chip">Programming</span>
+          </article>
+
+          <article class="card skill-card reveal">
+            <span class="skill-icon">🌐</span>
+            <h3>Web Designing</h3>
+            <p>Creating responsive layouts with attention to colours, typography, usability and user experience.</p>
+            <span class="skill-chip">HTML · CSS · JavaScript</span>
+          </article>
+
+          <article class="card skill-card reveal">
+            <span class="skill-icon">🚀</span>
+            <h3>Full Stack Development</h3>
+            <p>Exploring frontend, backend and databases to understand how complete web applications work.</p>
+            <span class="skill-chip">Development</span>
+          </article>
+        </div>
+
+        <div class="section-heading reveal" style="margin-top:55px;margin-bottom:0">
+          <h3>My Technology Stack</h3>
+          <p class="section-description" style="margin-top:8px">
+            A snapshot of my programming and web-development toolkit.
+          </p>
+          <div class="tech-stack">
+            <span class="tech">C</span>
+            <span class="tech">C++</span>
+            <span class="tech">Java</span>
+            <span class="tech">Python</span>
+            <span class="tech">HTML5</span>
+            <span class="tech">CSS3</span>
+            <span class="tech">JavaScript</span>
+            <span class="tech">Git & GitHub</span>
+            <span class="tech">Responsive Design</span>
+          </div>
+          <p style="color:var(--muted);font-size:.84rem;margin-top:14px">
+            Skill labels represent areas of learning and practice, not verified proficiency ratings.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div class="section-label">03 — Projects & Practice</div>
+          <h2>Learning by <span class="gradient-text">building.</span></h2>
+          <p class="section-description">
+            Explore my coding journey and discover what I'm working on.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="card project-card reveal">
+            <div class="project-number">01</div>
+            <h3>Programming Practice</h3>
+            <p>
+              Improving coding logic and problem-solving through practice
+              with programming languages and algorithmic challenges.
+            </p>
+            <a class="project-link"
+               href="https://leetcode.com/problemset/"
+               target="_blank" rel="noopener noreferrer">
+              Explore LeetCode ↗
+            </a>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-number">02</div>
+            <h3>Web Development Portfolio</h3>
+            <p>
+              A personal website to showcase my introduction, education,
+              technical skills and developer profiles with a responsive design.
+            </p>
+            <a class="project-link"
+               href="https://github.com/princy4962-source"
+               target="_blank" rel="noopener noreferrer">
+              Explore My GitHub ↗
+            </a>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-number">03</div>
+            <h3>Full Stack Learning</h3>
+            <p>
+              Exploring how frontend interfaces connect with backend
+              logic and databases to create useful web applications.
+            </p>
+            <a class="project-link"
+               href="https://github.com/princy4962-source"
+               target="_blank" rel="noopener noreferrer">
+              View My GitHub Profile ↗
+            </a>
+          </article>
+
+          <article class="card project-card reveal">
+            <div class="project-number">04</div>
+            <h3>Let's Build Something</h3>
+            <p>
+              I'm looking forward to creating more projects, collaborating
+              with other learners and turning new ideas into working software.
+            </p>
+            <a class="project-link" href="#contact">Connect With Me ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="highlights">
+      <div class="container">
+        <div class="highlight-box reveal">
+          <div class="section-label">04 — What Makes Me Different</div>
+          <h2>More than just <span class="gradient-text">writing code.</span></h2>
+          <p class="section-description">
+            The mindset I want to bring to every project and opportunity.
+          </p>
+
+          <div class="highlight-grid">
+            <div class="highlight-item">
+              <h3>✦ Logical Thinking</h3>
+              <p>I focus on understanding problems and breaking them into manageable steps.</p>
+            </div>
+            <div class="highlight-item">
+              <h3>✦ Design & Creativity</h3>
+              <p>I value clean interfaces, thoughtful colours and a better user experience.</p>
+            </div>
+            <div class="highlight-item">
+              <h3>✦ Continuous Learning</h3>
+              <p>I aim to improve through coding practice, projects and learning new technologies.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-card reveal">
+          <div class="section-label">05 — Contact & Connect</div>
+          <h2>Let's create something <span class="gradient-text">awesome.</span></h2>
+          <p>
+            Interested in collaborating, discussing technology or sharing
+            development ideas? Connect with me through my profiles.
+          </p>
+          <div class="contact-links">
+            <a class="btn btn-primary"
+               href="https://www.linkedin.com/in/princy-undefined-15a5b5411/"
+               target="_blank" rel="noopener noreferrer">
+              LinkedIn ↗
+            </a>
+            <a class="btn btn-outline"
+               href="https://github.com/princy4962-source"
+               target="_blank" rel="noopener noreferrer">
+              GitHub ↗
+            </a>
+            <a class="btn btn-outline"
+               href="https://leetcode.com/problemset/"
+               target="_blank" rel="noopener noreferrer">
+              LeetCode ↗
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Designed with creativity & code by <span class="gradient-text">Princy</span></p>
+      <p style="margin-top:5px">© <span id="year"></span> Princy. Keep learning. Keep building.</p>
+    </div>
+  </footer>
+
+  
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+
+  // Mobile navigation
+  menuBtn.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Close menu after clicking a navigation link
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Close menu using Escape
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      navLinks.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      menuBtn.focus();
+    }
+  });
+
+  // Automatically update copyright year
+  document.getElementById('year').textContent =
+    new Date().getFullYear();
+
+  // Reveal animations, with a safe fallback
+  const revealElements = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    revealElements.forEach(element => {
+      revealObserver.observe(element);
+    });
+  } else {
+    revealElements.forEach(element => {
+      element.classList.add('visible');
+    });
+  }
+</script>
+
 </body>
 </html>
